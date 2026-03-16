@@ -160,6 +160,31 @@ EXP <span id="exp"></span><br>
 <option value="0">🔥ファイア</option>
 <option value="1">❄アイス</option>
 <option value="2">⚡サンダー</option>
+  {
+name:"🩸ドレイン",
+cost:20,
+action(){
+
+if(playerMP<20)return
+
+playerMP-=20
+
+let dmg=attack*2
+
+enemyHP-=dmg
+
+let heal=Math.floor(dmg/2)
+
+playerHP+=heal
+
+if(playerHP>playerMax)playerHP=playerMax
+
+log("🩸 "+dmg+"ダメージ / "+heal+"回復")
+
+battleCheck()
+
+}
+}
 </select>
 
 <div id="skills" class="skillbar"></div>
